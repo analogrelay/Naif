@@ -77,10 +77,6 @@
       <Project>{9C393780-E7D4-4BA8-8745-D63731E79DC2}</Project>
       <Name>Naif.Data.PetaPoco</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\PetaPoco\PetaPoco.csproj">
-      <Project>{65CBDB79-B261-488D-9439-854F07D5DE41}</Project>
-      <Name>PetaPoco</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Naif.TestUtilities\Naif.TestUtilities.csproj">
       <Project>{E9E468D8-C526-48C7-AAE2-0CBDB687E840}</Project>
       <Name>Naif.TestUtilities</Name>

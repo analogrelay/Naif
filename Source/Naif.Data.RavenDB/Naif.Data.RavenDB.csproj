@@ -84,9 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="RavenDbDataContext.cs" />
-    <Compile Include="RavenDbDocumentStore.cs" />
-    <Compile Include="RavenDbRepository.cs" />
+    <Compile Include="RavenDBDataContext.cs" />
+    <Compile Include="RavenDBDocumentStore.cs" />
+    <Compile Include="RavenDBRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
