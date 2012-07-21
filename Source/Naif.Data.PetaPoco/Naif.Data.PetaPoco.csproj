@@ -47,10 +47,6 @@
       <Project>{C988F8C2-9EE1-4FF6-8B0F-355C640A30EC}</Project>
       <Name>Naif.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PetaPoco\PetaPoco.csproj">
-      <Project>{65CBDB79-B261-488D-9439-854F07D5DE41}</Project>
-      <Name>PetaPoco</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
