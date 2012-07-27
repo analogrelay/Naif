@@ -14,43 +14,47 @@ namespace Naif.Data.PetaPoco
         {
             _tablePrefix = tablePrefix;
         }
-
+        
         #region Implementation of IMapper
 
-        public void GetTableInfo(Type t, TableInfo ti)
+        public ColumnInfo GetColumnInfo(PropertyInfo pocoProperty)
         {
-            //Table Name
-            ti.TableName = Util.GetTableName(t, ti.TableName + "s");
-
-            ti.TableName = _tablePrefix + ti.TableName;
-
-            //Primary Key
-            ti.PrimaryKey = Util.GetPrimaryKeyName(t);
-
-            ti.AutoIncrement = true;
-        }
-
-        public bool MapPropertyToColumn(PropertyInfo pi, ref string columnName, ref bool resultColumn)
-        {
-            object[] columnNameAttributes = pi.GetCustomAttributes(typeof(ColumnNameAttribute), true);
+            ColumnInfo column = new ColumnInfo();
+            object[] columnNameAttributes = pocoProperty.GetCustomAttributes(typeof(ColumnNameAttribute), true);
             if (columnNameAttributes.Length > 0)
             {
                 var columnNameAttribute = (ColumnNameAttribute)columnNameAttributes[0];
-                columnName = columnNameAttribute.ColumnName;
+                column.ColumnName = columnNameAttribute.ColumnName;
             }
 
-            return true;
+            return column;
         }
 
-        public Func<object, object> GetFromDbConverter(PropertyInfo pi, Type SourceType)
+        public TableInfo GetTableInfo(Type pocoType)
+        {
+            //Table Name
+            TableInfo table = new TableInfo();
+            table.TableName = Util.GetTableName(pocoType, table.TableName + "s");
+
+            table.TableName = _tablePrefix + table.TableName;
+
+            //Primary Key
+            table.PrimaryKey = Util.GetPrimaryKeyName(pocoType);
+
+            table.AutoIncrement = true;
+            return table;
+        }
+
+        public Func<object, object> GetToDbConverter(PropertyInfo SourceProperty)
         {
             return null;
         }
 
-        public Func<object, object> GetToDbConverter(Type SourceType)
+        public Func<object, object> GetFromDbConverter(PropertyInfo TargetProperty, Type SourceType)
         {
             return null;
         }
+
         #endregion
     }
 }

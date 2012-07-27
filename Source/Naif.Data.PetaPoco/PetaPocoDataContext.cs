@@ -36,6 +36,7 @@ namespace Naif.Data.PetaPoco
 
             _database = new Database(connectionString, "System.Data.SqlClient");
             _cache = cache; 
+            Mappers.Register(
             Database.Mapper = new PetaPocoMapper(tablePrefix);
         }
 

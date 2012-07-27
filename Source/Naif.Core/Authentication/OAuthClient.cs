@@ -161,7 +161,7 @@ namespace Naif.Core.Authentication
             }
         }
 
-        public void MakeApiRequest<T>(Method requestMethod, ParameterType authTokenParameterType, string apiCall, Action<RestResponse<T>> callback) where T : class, new()
+        public void MakeApiRequest<T>(Method requestMethod, ParameterType authTokenParameterType, string apiCall, Action<IRestResponse<T>> callback) where T : class, new()
         {
             RestClient client = new RestClient(BaseUri);
 
